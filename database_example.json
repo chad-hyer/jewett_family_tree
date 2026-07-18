@@ -1,0 +1,30 @@
+[
+  {
+    "id": "p001",
+    "name": "Mike Jewett",
+    "parent": null,
+    "relationship": 0,
+    "extra": {}
+  },
+  {
+    "id": "p002",
+    "name": "Chad Hyer",
+    "parent": "p001",
+    "relationship": 3,
+    "extra": {
+      "institution": "Stanford University",
+      "start_year": 2025,
+      "field": "Synthetic Biology"
+    }
+  },
+  {
+    "id": "p003",
+    "name": "Jane Smith",
+    "parent": "p001",
+    "relationship": 4,
+    "extra": {
+      "start_year": 2022,
+      "end_year": 2024
+    }
+  }
+]

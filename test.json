@@ -1,0 +1,198 @@
+[
+  {
+    "id": "p001",
+    "name": "Mike Jewett",
+    "parent": null,
+    "relationship": 0,
+    "extra": {}
+  },
+  {
+    "id": "p002",
+    "name": "Chad Hyer",
+    "parent": "p001",
+    "relationship": 3,
+    "extra": {
+      "institution": "Stanford University",
+      "start_year": 2025,
+      "field": "Synthetic Biology"
+    }
+  },
+  {
+    "id": "p003",
+    "name": "Jane Smith",
+    "parent": "p001",
+    "relationship": 4,
+    "extra": {
+      "start_year": 2022,
+      "end_year": 2024
+    }
+  },
+  {
+    "id": "p004",
+    "name": "Gus",
+    "parent": "p003",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p005",
+    "name": "Goose",
+    "parent": "p003",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p006",
+    "name": "Gonse",
+    "parent": "p003",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p007",
+    "name": "Gus",
+    "parent": "p003",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p008",
+    "name": "Goose",
+    "parent": "p003",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p009",
+    "name": "Gonse",
+    "parent": "p003",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p010",
+    "name": "Gus",
+    "parent": "p003",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p011",
+    "name": "Goose",
+    "parent": "p003",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p012",
+    "name": "Gonse",
+    "parent": "p003",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p013",
+    "name": "Fun",
+    "parent": "p003",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p014",
+    "name": "Fan",
+    "parent": "p003",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p015",
+    "name": "Foon",
+    "parent": "p003",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p016",
+    "name": "Gus",
+    "parent": "p014",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p017",
+    "name": "Goose",
+    "parent": "p014",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p018",
+    "name": "Gonse",
+    "parent": "p014",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p019",
+    "name": "Gus",
+    "parent": "p008",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p020",
+    "name": "Goose",
+    "parent": "p008",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p021",
+    "name": "Gonse",
+    "parent": "p008",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p022",
+    "name": "Gus",
+    "parent": "p006",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p023",
+    "name": "Goose",
+    "parent": "p006",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p024",
+    "name": "Gonse",
+    "parent": "p006",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p025",
+    "name": "Gus",
+    "parent": "p024",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p026",
+    "name": "Goose",
+    "parent": "p024",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p027",
+    "name": "Gonse",
+    "parent": "p024",
+    "relationship": 3,
+    "extra": {}
+  }
+]
