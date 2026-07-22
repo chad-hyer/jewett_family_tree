@@ -18,9 +18,16 @@
       <input id="search-input" type="text" placeholder="Search by name..." autocomplete="off">
       <div id="search-results" class="hidden"></div>
     </div>
+    <div id="orientation-group" class="btn-group">
+      <button type="button" data-orientation="landscape" title="Generations flow left to right">Landscape</button>
+      <button type="button" data-orientation="portrait" title="Generations flow top to bottom">Portrait</button>
+      <button type="button" data-orientation="fan" title="Radial fan layout">Fan</button>
+    </div>
     <button id="filter-toggle" class="toolbar-btn" type="button">Filters</button>
     <button id="expand-all" class="toolbar-btn" type="button">Expand All</button>
     <button id="reset-view" class="toolbar-btn" type="button">Show Full Tree</button>
+    <button id="upload-btn" class="toolbar-btn" type="button">Upload JSON...</button>
+    <input id="upload-input" type="file" accept=".json,application/json" hidden>
   </div>
 </header>
 

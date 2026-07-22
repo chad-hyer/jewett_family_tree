@@ -140,6 +140,26 @@ body {
 .toolbar-btn:hover { background: rgba(255, 255, 255, 0.28); }
 .toolbar-btn.active { background: #fff; color: var(--accent-dark); border-color: #fff; }
 
+.btn-group {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.btn-group button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 7px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-group button:last-child { border-right: none; }
+.btn-group button:hover { background: rgba(255, 255, 255, 0.28); }
+.btn-group button.active { background: #fff; color: var(--accent-dark); }
+
 #filter-panel {
   position: absolute;
   top: 56px;
@@ -275,18 +295,26 @@ path.mini-link {
   opacity: 0.8;
 }
 
-.node-card, .mini-card {
+.co-advisor-link path {
+  fill: none;
+  stroke: #e5a100;
+  stroke-width: 2.2px;
+  stroke-dasharray: 6 4;
+  opacity: 0.9;
+}
+
+.node-card, .mini-card, .cluster-card {
   cursor: pointer;
 }
 
-.node-card rect.card-bg, .mini-card rect.card-bg {
+.node-card rect.card-bg, .mini-card rect.card-bg, .cluster-card rect.card-bg {
   fill: var(--card-bg);
   stroke: var(--border);
   stroke-width: 1px;
   filter: drop-shadow(0 1px 2px rgba(15, 30, 40, 0.15));
 }
 
-.node-card:hover rect.card-bg, .mini-card:hover rect.card-bg {
+.node-card:hover rect.card-bg, .mini-card:hover rect.card-bg, .cluster-card:hover rect.card-bg {
   stroke: var(--accent);
 }
 
@@ -297,6 +325,19 @@ path.mini-link {
 
 .node-card.collapsed rect.card-bg {
   stroke-dasharray: 4 3;
+}
+
+.cluster-card-bg {
+  fill: #f2f0e9 !important;
+  stroke-dasharray: 4 3;
+}
+
+.cluster-avatar {
+  fill: #9a927c !important;
+}
+
+.cluster-card .node-name, .cluster-card .node-meta {
+  fill: #6b6350;
 }
 
 .avatar-circle { stroke: rgba(0,0,0,0.08); }
@@ -358,6 +399,14 @@ path.mini-link {
 
 .mini-card rect.card-bg {
   filter: none;
+}
+
+/* A co-advisee floated in next to a co-advisor they'd otherwise have no
+   position near (e.g. when isolated on that advisor's branch) - dashed in
+   the same gold as the co-advisor link so the connection is obvious. */
+.auxiliary-mini rect.card-bg {
+  stroke: #e5a100;
+  stroke-dasharray: 3 2;
 }
 
 /* --- Detail side panel --- */

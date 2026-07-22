@@ -91,42 +91,70 @@ Then open `http://localhost:8000/`.
 1. Push this repo to GitHub.
 2. In **Settings > Pages**, set **Source** to "Deploy from a branch", branch
    `main`, folder `/docs`.
-3. Replace `docs/data.json` with your own tree (same schema as below) — for
-   example, copy a file you saved from the desktop app:
-   ```bash
-   cp DIC_Wang_Family_Tree.json docs/data.json
-   ```
-4. Commit and push; GitHub will publish the site at
-   `https://<username>.github.io/<repo>/`.
+3. GitHub will publish the site at `https://<username>.github.io/<repo>/`.
 
-You can also point the viewer at a different JSON file without renaming
-anything, e.g. `index.html?data=my_other_tree.json`.
+`docs/data.json` currently ships as a copy of `DIC_Wang_Family_Tree_with_coadvisement.json`.
+To use a different tree, replace it (same schema as below) — for example:
+```bash
+cp Jim_Swartz_Subtree.json docs/data.json
+```
+Or point the viewer at any JSON file without renaming anything, e.g.
+`index.html?data=my_other_tree.json`. You can also load a file straight from
+your computer with the **Upload JSON...** button in the toolbar — nothing
+gets uploaded anywhere, it's read entirely in your browser.
 
 ### Features
 
 - Styled after [FamilySearch](https://www.familysearch.org/)'s tree view:
-  rounded person cards with colored avatar initials, laid out generation by
-  generation left-to-right, connected by soft curved lines.
+  rounded person cards with colored avatar initials, connected by soft
+  curved lines.
+- **Landscape / Portrait / Fan** orientation toggle (top toolbar) — switch
+  between generations flowing left-to-right, top-to-bottom, or radiating
+  outward from a center point. All three share the same layout engine, so
+  nothing overlaps in any of them, however deeply a cluster is nested. Fan
+  mode looks best once you've narrowed the view down to a subtree (see
+  below) rather than the entire tree at once.
 - **Filters** panel (top right) lets you show/hide individuals by
   relationship type (undergrad, master's, PhD, postdoc, unknown), with a live
   count of how many of each are in the tree. Hiding a type reconnects that
   person's visible descendants to their nearest visible ancestor, so the tree
   never breaks apart.
 - **Expand/collapse in both directions** to isolate any part of the tree:
-  - Click the **›** button on the right edge of a card to expand/collapse
-    that person's descendants.
-  - Click the **‹** button on the left edge to isolate everything from that
-    person down, hiding their ancestors. A breadcrumb trail appears so you
-    can jump back to any ancestor, or all the way to "Full Tree".
-  - As in the desktop app, a person whose children have no children of
-    their own starts collapsed, and expands into a compact grid grouped by
-    relationship type rather than one long column — this keeps a handful of
-    prolific advisors from making the whole tree unreadably tall.
+  - Click the **›** button on a card to expand/collapse that person's
+    descendants.
+  - Click the **‹** button to isolate everything from that person down,
+    hiding their ancestors. A breadcrumb trail appears so you can jump back
+    to any ancestor, or all the way to "Full Tree".
+  - Every childless child of a person is automatically grouped into its own
+    "N students, no further descendants" cluster card, collapsed by
+    default — separate from any siblings who *do* have descendants (those
+    stay as ordinary individual cards, expanded by default). This applies
+    even when a person has a mix of both, so one prolific advisor with a
+    few well-established academic children and dozens of one-off students
+    doesn't force everyone into a single giant list. Click a cluster card
+    to expand it into a compact grid grouped by relationship type; a small
+    **−** button floats above it to collapse it back. The layout
+    automatically reserves however much extra room an expanded cluster
+    needs so it can never overlap a neighboring branch, however deeply
+    nested.
 - **Search** by name; results jump to and highlight that person, expanding
-  any collapsed ancestors along the way so they're actually visible.
-- Click any card to open a detail panel with their advisor, direct/total
+  any collapsed ancestors (and their own cluster, if they're in one) along
+  the way so they're actually visible.
+- Click any card to open a detail panel with their advisor(s), direct/total
   descendant counts, and any `extra` fields.
 - Scroll to zoom, drag to pan, or use the on-screen zoom controls.
+- **Co-advisement**: a secondary advisor is drawn as a dashed gold arc to
+  that person, deliberately bowed out so it still reads clearly even when
+  both people are in the same generation (where a straight line would be
+  easy to miss). A co-advised person is never folded into a cluster - even
+  if they'd otherwise have no children of their own - so the link always
+  has a real standalone card to point at, rather than disappearing when a
+  cluster collapses or getting lost weaving through one when it's expanded.
+  If you isolate on one of their advisors (the **‹** button) and their
+  *other* advisor falls outside that view, they still show up as a small
+  dashed card floated next to whichever advisor is visible, so the
+  relationship stays visible no matter which side you're looking from. See
+  the schema note below.
 
 ## Database Schema
 
@@ -136,7 +164,7 @@ Each individual in the family tree is represented as a JSON object with the foll
 |----------------|----------------|-------------------------------------------------------------------------------|
 | `id`           | string         | Unique identifier for the individual.                                        |
 | `name`         | string         | Full name of the individual.                                                 |
-| `parent`       | string \| null | `id` of this person's advisor/mentor node. `null` if there is no parent (e.g. root of the tree, or relationship unknown). |
+| `parent`       | string \| string[] \| null | `id` of this person's advisor/mentor node. `null` if there is no parent (e.g. root of the tree, or relationship unknown). May also be a **list of ids** for a co-advised person - see note below. |
 | `relationship` | integer        | Relationship to the parent node. See enum below.                             |
 | `extra`        | object         | Free-form key/value object for any additional information. Not validated against a fixed schema, so contributors can add new fields (e.g. `institution`, `start_year`, `field`) without needing to update the data model. |
 
@@ -187,5 +215,13 @@ Each individual in the family tree is represented as a JSON object with the foll
 
 ### Notes
 
-- Each entry supports only a single `parent`. Co-advised individuals will need to designate one advisor as the primary parent for tree-building purposes.
+- The desktop app (`family_tree_app.py`) only reads/writes a single `parent`
+  id — co-advised individuals need one advisor designated as the primary
+  parent there. The **web viewer** additionally understands `parent` as a
+  list of ids: the first is treated as the primary advisor for the tree's
+  structure, and any others are drawn as a dashed "co-advised by" line. For
+  example, `"parent": ["p163", "p579"]` means primarily advised by `p163`,
+  co-advised by `p579`. See `DIC_Wang_Family_Tree_with_coadvisement.json`
+  for a real example (Meagan Olsen, co-advised by Michael Jewett and Ashty
+  Karim).
 - The `extra` field is intentionally unstructured — treat it as a place for contributors to record whatever context is useful (thesis title, lab URL, funding source, etc.) without requiring changes to the core schema.
