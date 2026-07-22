@@ -1,0 +1,2764 @@
+[
+  {
+    "id": "p012",
+    "name": "Jim Swartz",
+    "parent": "p002",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p143",
+    "name": "Philip Smith",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p144",
+    "name": "Isoken Airen",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p145",
+    "name": "Jon Kuchenreuther",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p146",
+    "name": "John Welsh",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p147",
+    "name": "William Yang",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p148",
+    "name": "Bert Lui",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p149",
+    "name": "Kedar Patel",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p150",
+    "name": "Jim Stapleton",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p151",
+    "name": "Brad Bundy",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p152",
+    "name": "Wilson Sonsini",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p153",
+    "name": "Norman Hovijitra",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p154",
+    "name": "Aaron Goerke",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p155",
+    "name": "Jessica Wuu",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p156",
+    "name": "Dennis Yancey",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p157",
+    "name": "Kelly Underwood",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p158",
+    "name": "Alexei Voloshin",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p159",
+    "name": "Marcus Boyer",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p160",
+    "name": "Kurtis Knapp",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p161",
+    "name": "Kara Calhoun",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p162",
+    "name": "Kim Woodrow",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p163",
+    "name": "Michael Jewett",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p164",
+    "name": "Jennifer Schulte",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p165",
+    "name": "James Zawanda",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p767",
+    "name": "Dong-Myung Kim",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p768",
+    "name": "Nathalie Michel-Reydellet",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p769",
+    "name": "Boris Peker",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p770",
+    "name": "Gang Yin",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p771",
+    "name": "Junhao Yang",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p772",
+    "name": "Chia-Wei Wang",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p773",
+    "name": "Marc Franciszkowicz",
+    "parent": "p012",
+    "relationship": 2,
+    "extra": {}
+  },
+  {
+    "id": "p774",
+    "name": "Mark Miller",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p775",
+    "name": "Yvonne Chen",
+    "parent": "p012",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p776",
+    "name": "Karthish Manthiram",
+    "parent": "p012",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p777",
+    "name": "Jeanne Bonomo",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p778",
+    "name": "Alyssa Bingham",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p779",
+    "name": "Yuan Lu",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p780",
+    "name": "Cem Albayrak",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p781",
+    "name": "Wei Chan",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p782",
+    "name": "Stacey Shiigi",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p783",
+    "name": "Kunal Mehta",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p784",
+    "name": "Nick Evitt",
+    "parent": "p012",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p785",
+    "name": "Lilliana De La Paz",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p786",
+    "name": "Benjamin Ko",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p787",
+    "name": "Christopher VanLang",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p788",
+    "name": "Jamin Koo",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p789",
+    "name": "Tim Schnabel",
+    "parent": "p012",
+    "relationship": 1,
+    "extra": {}
+  },
+  {
+    "id": "p790",
+    "name": "Sylvie Liong",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p791",
+    "name": "Markus Rohovie",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p792",
+    "name": "Maya Nagasawa",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p793",
+    "name": "Julie Fogarty",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p794",
+    "name": "Rinchu Mat",
+    "parent": "p012",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p795",
+    "name": "Weigao Wang",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p796",
+    "name": "Caroline Copeland",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p797",
+    "name": "Anja Redecker",
+    "parent": "p012",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p798",
+    "name": "Tyler P Green",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2024-present"
+    }
+  },
+  {
+    "id": "p799",
+    "name": "Joseph P Talley",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2023-present"
+    }
+  },
+  {
+    "id": "p800",
+    "name": "Tyler J Free",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2024"
+    }
+  },
+  {
+    "id": "p801",
+    "name": "Emily Long Zhao",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2022"
+    }
+  },
+  {
+    "id": "p802",
+    "name": "Mehran Soltani",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-2021"
+    }
+  },
+  {
+    "id": "p803",
+    "name": "J. Porter Hunt",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2016-2021"
+    }
+  },
+  {
+    "id": "p804",
+    "name": "Kristen M Wilding",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2014-2018"
+    }
+  },
+  {
+    "id": "p805",
+    "name": "Seung-Ook Yang",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2014-2017"
+    }
+  },
+  {
+    "id": "p806",
+    "name": "Song-Min Schinn",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2013-2017"
+    }
+  },
+  {
+    "id": "p807",
+    "name": "Amin SM Salehi",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2013-2017"
+    }
+  },
+  {
+    "id": "p808",
+    "name": "Mark T Smith",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2010-2015"
+    }
+  },
+  {
+    "id": "p809",
+    "name": "Jeffrey C Wu",
+    "parent": "p151",
+    "relationship": 3,
+    "extra": {
+      "years": "2010-2014"
+    }
+  },
+  {
+    "id": "p545",
+    "name": "Chad Hyer",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2026-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p546",
+    "name": "Sasha Bronovitskiy",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2026-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p547",
+    "name": "Stella Anastasakis",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2026-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p548",
+    "name": "Megan Fleeharty",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2025-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p549",
+    "name": "Anru Tian",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2024-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p550",
+    "name": "Irene Martinez",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2024-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p551",
+    "name": "Ravalika Dermala",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2023-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p552",
+    "name": "Kyle Zolkin",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2023-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p553",
+    "name": "Kathryn Myers",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2023-present",
+      "program": "Bioengineering"
+    }
+  },
+  {
+    "id": "p554",
+    "name": "Laura Guerrero",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2022-2026",
+      "program": "Stanford Bioengineering"
+    }
+  },
+  {
+    "id": "p555",
+    "name": "Brenda Wang",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2021-2025",
+      "program": "Stanford Bioengineering"
+    }
+  },
+  {
+    "id": "p556",
+    "name": "Meagan Olsen",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2022-2026",
+      "program": "Northwestern CBE"
+    }
+  },
+  {
+    "id": "p557",
+    "name": "Zachary Shaver",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2022-2026",
+      "program": "Northwestern MSTP/IBiS"
+    }
+  },
+  {
+    "id": "p558",
+    "name": "Caleb Lay",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2021-2025",
+      "program": "Northwestern CBE"
+    }
+  },
+  {
+    "id": "p559",
+    "name": "Grant Landwehr",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2024",
+      "program": "Northwestern CBE",
+      "position": "Ridge Bio"
+    }
+  },
+  {
+    "id": "p560",
+    "name": "Derek Wong",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2024",
+      "program": "Northwestern CBE",
+      "position": "Vaxcyte"
+    }
+  },
+  {
+    "id": "p561",
+    "name": "Holly Ekas",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2024",
+      "program": "Northwestern CBE",
+      "position": "Starling",
+      "note": "previously undergraduate mentee 2018"
+    }
+  },
+  {
+    "id": "p562",
+    "name": "Madison DeWinter",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2024",
+      "program": "Northwestern MSTP/CBE",
+      "position": "MD, Northwestern"
+    }
+  },
+  {
+    "id": "p563",
+    "name": "Camila Kofman",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2019-2024",
+      "program": "Northwestern CBE",
+      "position": "Avery Biotech"
+    }
+  },
+  {
+    "id": "p564",
+    "name": "Ariel Thames",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2019-2023",
+      "program": "Northwestern MSTP/IBiS",
+      "position": "MD, Northwestern"
+    }
+  },
+  {
+    "id": "p565",
+    "name": "Kosuke Seki",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2019-2023",
+      "program": "Northwestern CBE",
+      "position": "postdoc w/ Tanja Kortemme"
+    }
+  },
+  {
+    "id": "p566",
+    "name": "Blake Rasor",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2023",
+      "program": "Northwestern CBE",
+      "position": "postdoc w/ Tobi Erb"
+    }
+  },
+  {
+    "id": "p567",
+    "name": "Katherine Warfel",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2023",
+      "program": "Northwestern CBE",
+      "position": "Nabla Bio"
+    }
+  },
+  {
+    "id": "p568",
+    "name": "Sam Gowland",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2022",
+      "program": "Northwestern CBE",
+      "position": "postdoc w/ Corey Wilson"
+    }
+  },
+  {
+    "id": "p569",
+    "name": "Grant Rybnicky",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2022",
+      "program": "Northwestern IBiS",
+      "position": "Naval Research Laboratory",
+      "note": "previously rotation student 2018"
+    }
+  },
+  {
+    "id": "p570",
+    "name": "Charlotte Abrahamson",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-2022",
+      "program": "Northwestern CBE",
+      "co_advisor": "Danielle Tullman-Ercek",
+      "position": "Vaxcyte"
+    }
+  },
+  {
+    "id": "p571",
+    "name": "Andrew Hunt",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-2022",
+      "program": "Northwestern CBE",
+      "position": "postdoc w/ David Baker"
+    }
+  },
+  {
+    "id": "p572",
+    "name": "Do Soon Kim",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2015-2021",
+      "program": "Northwestern CBE",
+      "position": "Inceptive"
+    }
+  },
+  {
+    "id": "p573",
+    "name": "Adam Silverman",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-2021",
+      "program": "Northwestern CBE",
+      "co_advisor": "Julius Lucks",
+      "position": "Sherlock Biosciences"
+    }
+  },
+  {
+    "id": "p574",
+    "name": "Jasmine Hershewe",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-2020",
+      "program": "Northwestern CBE",
+      "position": "Telesis Bio",
+      "note": "previously M.Sc. 2015 in Jewett lab"
+    }
+  },
+  {
+    "id": "p575",
+    "name": "Weston Kightlinger",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2015-2020",
+      "program": "Northwestern CBE",
+      "position": "CTO, Swiftscale Biologics"
+    }
+  },
+  {
+    "id": "p576",
+    "name": "Anne d'Aquino",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2015-2020",
+      "program": "Northwestern IBiS",
+      "position": "Senior Scientist, Stemloop",
+      "note": "previously rotation student 2015"
+    }
+  },
+  {
+    "id": "p577",
+    "name": "Jessica Stark",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2014-2019",
+      "program": "Northwestern CBE",
+      "position": "Assistant Professor, MIT"
+    }
+  },
+  {
+    "id": "p578",
+    "name": "Benjamin Des Soye",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2013-2018",
+      "program": "Northwestern IBiS",
+      "position": "Technology Fellow, Northwestern",
+      "note": "previously rotation student 2013"
+    }
+  },
+  {
+    "id": "p579",
+    "name": "Ashty Karim",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2014-2018",
+      "program": "Northwestern CBE",
+      "position": "Assistant Professor, Northwestern",
+      "note": "also Assistant Scientific Director in Jewett lab 2018-present"
+    }
+  },
+  {
+    "id": "p580",
+    "name": "Quentin Dudley",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2013-2017",
+      "program": "Northwestern CBE",
+      "position": "Assistant Professor, Univ. of Wisconsin"
+    }
+  },
+  {
+    "id": "p581",
+    "name": "Rey Martin",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2013-2017",
+      "program": "Northwestern CBE",
+      "position": "DuPont"
+    }
+  },
+  {
+    "id": "p582",
+    "name": "Erik Carlson",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2011-2017",
+      "program": "Northwestern CBE",
+      "position": "postdoc w/ Beth Sattely, Stanford"
+    }
+  },
+  {
+    "id": "p583",
+    "name": "Adam Hockenberry",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2011-2017",
+      "program": "Northwestern IBiS",
+      "co_advisor": "Luis Amaral",
+      "position": "postdoc w/ Claus Wilke, Senior Science Writer at Tempus Labs",
+      "note": "previously rotation student 2010"
+    }
+  },
+  {
+    "id": "p584",
+    "name": "Jessica Perez",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2012-2016",
+      "program": "Northwestern CBE",
+      "position": "Associate Director, POETS"
+    }
+  },
+  {
+    "id": "p585",
+    "name": "Jennifer Kay",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2012-2016",
+      "program": "Northwestern CBE",
+      "position": "Gingko Bioworks"
+    }
+  },
+  {
+    "id": "p586",
+    "name": "Jennifer Schoborg",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2012-2016",
+      "program": "Northwestern CBE",
+      "position": "Pfizer"
+    }
+  },
+  {
+    "id": "p587",
+    "name": "Yi Liu",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2012-2015",
+      "program": "Northwestern MSTP",
+      "position": "MD, Northwestern",
+      "note": "previously rotation student 2011"
+    }
+  },
+  {
+    "id": "p588",
+    "name": "Brian Fritz",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2010-2014",
+      "program": "Northwestern CBE",
+      "position": "Moderna Therapeutics"
+    }
+  },
+  {
+    "id": "p589",
+    "name": "Charles 'Eric' Hodgman",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2010-2014",
+      "program": "Northwestern CBE",
+      "position": "Bristol Myers Squibb"
+    }
+  },
+  {
+    "id": "p590",
+    "name": "Timothy Joel Feliciano",
+    "parent": "p163",
+    "relationship": 3,
+    "extra": {
+      "years": "2016-2018",
+      "program": "Northwestern IBiS",
+      "note": "Jewett was SECONDARY mentor only (CLP training grant), verify primary advisor before treating Jewett as parent node"
+    }
+  },
+  {
+    "id": "p591",
+    "name": "Tong Un Chae",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2024-present"
+    }
+  },
+  {
+    "id": "p592",
+    "name": "Sam Crowe",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2024-present",
+      "note": "possibly same person as undergraduate mentee Samantha Crowe (2015-2018), please confirm"
+    }
+  },
+  {
+    "id": "p593",
+    "name": "Megan McSweeney",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2024-present"
+    }
+  },
+  {
+    "id": "p594",
+    "name": "So Young Choi",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2025-present"
+    }
+  },
+  {
+    "id": "p595",
+    "name": "Helena Schulz-Mirbach",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2026-present"
+    }
+  },
+  {
+    "id": "p596",
+    "name": "Beau Dronsella",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2026-present"
+    }
+  },
+  {
+    "id": "p597",
+    "name": "Samer Saleh",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2026-present"
+    }
+  },
+  {
+    "id": "p598",
+    "name": "John Tyler Lazar",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2023-2025",
+      "position": "Twist Biosciences"
+    }
+  },
+  {
+    "id": "p599",
+    "name": "Yun-Nam Choi",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2022-2025",
+      "position": "Center for Protein Design at St. Jude"
+    }
+  },
+  {
+    "id": "p600",
+    "name": "Rochelle Aw",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2022-2025",
+      "position": "Assistant Professor, Nottingham University"
+    }
+  },
+  {
+    "id": "p601",
+    "name": "Jessica Willi",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2020-2024",
+      "position": "Assistant Professor, University of Lethbridge"
+    }
+  },
+  {
+    "id": "p602",
+    "name": "Peivand Sadat Mousavi",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2022-2023",
+      "position": "Researcher, University of Toronto"
+    }
+  },
+  {
+    "id": "p603",
+    "name": "Maria Cabezas Tapia",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2018-2023",
+      "position": "Northwestern University"
+    }
+  },
+  {
+    "id": "p604",
+    "name": "Steve Flemming",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2020-2022",
+      "position": "Genentech"
+    }
+  },
+  {
+    "id": "p605",
+    "name": "Antje Kr\u00fcger",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2017-2022",
+      "position": "Resilience"
+    }
+  },
+  {
+    "id": "p606",
+    "name": "Jon Bogart",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2019-2022",
+      "co_advisor": "Martin Burke, UIUC",
+      "position": "Zymtronix"
+    }
+  },
+  {
+    "id": "p607",
+    "name": "Bastian V\u00f6geli",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2019-2021",
+      "position": "Invizyme"
+    }
+  },
+  {
+    "id": "p608",
+    "name": "Michael Hammerling",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2016-2021",
+      "position": "Future House"
+    }
+  },
+  {
+    "id": "p609",
+    "name": "Joongoo Lee",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2016-2021",
+      "position": "Assistant Professor, POSTECH"
+    }
+  },
+  {
+    "id": "p610",
+    "name": "Jian Li",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2013-2017",
+      "position": "Assistant Professor, ShanghaiTech"
+    }
+  },
+  {
+    "id": "p611",
+    "name": "James Kath",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2015-2017",
+      "position": "Abbvie"
+    }
+  },
+  {
+    "id": "p612",
+    "name": "Gan Rui",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2010-2017",
+      "position": "Broad Institute"
+    }
+  },
+  {
+    "id": "p613",
+    "name": "Yong Chan Kwon",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2012-2017",
+      "position": "Assistant Professor, Louisiana State University"
+    }
+  },
+  {
+    "id": "p614",
+    "name": "Filippo Caschera",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2014-2015",
+      "position": "LenioBio"
+    }
+  },
+  {
+    "id": "p615",
+    "name": "Javin Oza",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2012-2015",
+      "position": "Assistant Professor, Cal Poly San Luis Obispo"
+    }
+  },
+  {
+    "id": "p616",
+    "name": "Seok Hoon Hong",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2011-2015",
+      "position": "Associate Professor, Illinois Institute of Technology",
+      "note": "deceased"
+    }
+  },
+  {
+    "id": "p617",
+    "name": "Arnaz Ranji",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2011-2013",
+      "position": "Program Head, KIC UnivAssist India"
+    }
+  },
+  {
+    "id": "p618",
+    "name": "D. Calvin Harris",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2011-2013",
+      "position": "UTHSC College of Dentistry"
+    }
+  },
+  {
+    "id": "p619",
+    "name": "Xinhao Ye",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": 2012,
+      "position": "Pfizer"
+    }
+  },
+  {
+    "id": "p620",
+    "name": "Anne Bunner",
+    "parent": "p163",
+    "relationship": 4,
+    "extra": {
+      "years": "2010-2012",
+      "position": "Physicians Committee for Responsible Medicine"
+    }
+  },
+  {
+    "id": "p621",
+    "name": "Isaiah Richardson",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2022,
+      "program": "Master of Biotechnology",
+      "position": "Dartmouth, PhD student"
+    }
+  },
+  {
+    "id": "p622",
+    "name": "Deepali Prasanna",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2022,
+      "program": "Master of Biotechnology",
+      "position": "Princeton University, PhD student"
+    }
+  },
+  {
+    "id": "p623",
+    "name": "Hunter Brown",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2021,
+      "program": "Master of Biotechnology",
+      "position": "Biomanufacturing Training and Education Center, NC State"
+    }
+  },
+  {
+    "id": "p624",
+    "name": "Danielle Yoesep",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2018,
+      "program": "Master of Biotechnology",
+      "position": "SwiftScale"
+    }
+  },
+  {
+    "id": "p625",
+    "name": "Dubby Wiseman",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2017,
+      "program": "Master of Biotechnology",
+      "position": "Genentech"
+    }
+  },
+  {
+    "id": "p626",
+    "name": "He Wang",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2016,
+      "program": "Master of Biotechnology",
+      "position": "GreenLight Biosciences"
+    }
+  },
+  {
+    "id": "p627",
+    "name": "Alaksh Choudhury",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2014,
+      "program": "Master of Biotechnology",
+      "position": "University of Colorado, PhD student"
+    }
+  },
+  {
+    "id": "p628",
+    "name": "Oliver Weisser",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2014,
+      "program": "Master of Biotechnology",
+      "position": "Deloitte"
+    }
+  },
+  {
+    "id": "p629",
+    "name": "Mark Anderson",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2012,
+      "program": "Master of Biotechnology",
+      "position": "Abbott"
+    }
+  },
+  {
+    "id": "p630",
+    "name": "Richard Bellin",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2011,
+      "program": "Master of Biotechnology",
+      "position": "Abbvie"
+    }
+  },
+  {
+    "id": "p631",
+    "name": "Eric Van Groll",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2011,
+      "program": "Master of Biotechnology",
+      "position": "Ohmx"
+    }
+  },
+  {
+    "id": "p632",
+    "name": "Eric Tseng",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2010,
+      "program": "Master of Biotechnology",
+      "position": "Abbott"
+    }
+  },
+  {
+    "id": "p633",
+    "name": "Andrea Engel",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2010,
+      "program": "Master of Biotechnology",
+      "position": "LanzaTech"
+    }
+  },
+  {
+    "id": "p634",
+    "name": "Eric Hammarlund",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2022,
+      "program": "M.Sc. Chemical Engineering",
+      "position": "Resilience"
+    }
+  },
+  {
+    "id": "p635",
+    "name": "Will Grubbe",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2017,
+      "program": "M.Sc. Chemical Engineering",
+      "position": "University of Chicago, PhD",
+      "note": "previously undergraduate mentee 2016-2017"
+    }
+  },
+  {
+    "id": "p636",
+    "name": "Laura Timmerman",
+    "parent": "p163",
+    "relationship": 2,
+    "extra": {
+      "years": 2013,
+      "program": "M.Sc. Chemical Engineering",
+      "co_advisor": "Luis Amaral",
+      "position": "ToxStrategies, Inc."
+    }
+  },
+  {
+    "id": "p637",
+    "name": "Abigail Alemayeho",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2025-present",
+      "program": "Honors Thesis"
+    }
+  },
+  {
+    "id": "p638",
+    "name": "Rebecca Lion",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2022-2025",
+      "program": "Murphy Scholars Program"
+    }
+  },
+  {
+    "id": "p639",
+    "name": "Regina Fernandez",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2022-2023",
+      "position": "Imperial College London"
+    }
+  },
+  {
+    "id": "p640",
+    "name": "Anika Gupta",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2021-2023",
+      "program": "Murphy Scholars Program",
+      "position": "Rice University, Bioengineering"
+    }
+  },
+  {
+    "id": "p641",
+    "name": "Carol Vieira de Magalhaes",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2021-2022",
+      "program": "Murphy Scholars Program"
+    }
+  },
+  {
+    "id": "p642",
+    "name": "Joey Galindo",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2021-2023",
+      "position": "Princeton, Chemical Engineering"
+    }
+  },
+  {
+    "id": "p643",
+    "name": "Sarah Sobol",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2020-2023",
+      "program": "Murphy Scholars Program",
+      "position": "MIT, Bioengineering"
+    }
+  },
+  {
+    "id": "p644",
+    "name": "Nathalie Boadi",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2019-2023",
+      "program": "NU Bioscientist Program"
+    }
+  },
+  {
+    "id": "p645",
+    "name": "Yejun Kim",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2019-2022",
+      "program": "Murphy Scholars Program",
+      "position": "University of Washington"
+    }
+  },
+  {
+    "id": "p646",
+    "name": "Rafael Torres",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2018-2022",
+      "program": "NU Bioscientist Program"
+    }
+  },
+  {
+    "id": "p647",
+    "name": "Skylar Ladson-Gary",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2019-2021",
+      "position": "NorthShore Research Institute"
+    }
+  },
+  {
+    "id": "p648",
+    "name": "Alysse Taylor DeFoe",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2017-2021",
+      "program": "NU Bioscientist Program",
+      "position": "Colorado, Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p649",
+    "name": "Erik John Bidstrup",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2017-2020",
+      "position": "Cornell, Chemical and Biomolecular Engineering"
+    }
+  },
+  {
+    "id": "p650",
+    "name": "Alex Wooldredge",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2019,
+      "program": "SynBREU Summer Program"
+    }
+  },
+  {
+    "id": "p651",
+    "name": "Shaelyn Iyer",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2019,
+      "program": "NU Bioscientist Program",
+      "position": "Caltech, Mechanical Engineering"
+    }
+  },
+  {
+    "id": "p652",
+    "name": "Kim Phan Ngoc Hoang",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2018-2019",
+      "position": "Ohio State University, PhD student"
+    }
+  },
+  {
+    "id": "p653",
+    "name": "Ashvita Ramesh",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2017-2019",
+      "program": "Murphy Scholar",
+      "position": "Northwestern University Medical School, Medical student"
+    }
+  },
+  {
+    "id": "p654",
+    "name": "Katherine Duncker",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2017-2019",
+      "program": "Murphy Scholar",
+      "position": "Duke University, PhD student"
+    }
+  },
+  {
+    "id": "p655",
+    "name": "Aura Ulloa",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2018,
+      "program": "NU Bioscientist Program"
+    }
+  },
+  {
+    "id": "p656",
+    "name": "Emily Roney",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2016-2018",
+      "position": "AbbVie, NIH, University of Michigan, MD/PhD student"
+    }
+  },
+  {
+    "id": "p657",
+    "name": "Tasfia Azim",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2016-2018",
+      "position": "Rice Chemical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p658",
+    "name": "Rachel Dubner",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2016-2018",
+      "position": "NYU School of Medicine, PhD student"
+    }
+  },
+  {
+    "id": "p659",
+    "name": "Samuel Davidson",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2018",
+      "program": "Beckman Scholar",
+      "position": "Caltech Bioengineering, PhD student"
+    }
+  },
+  {
+    "id": "p661",
+    "name": "Karen Hsu",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2018",
+      "program": "Honors Thesis",
+      "position": "DMC Robotics"
+    }
+  },
+  {
+    "id": "p662",
+    "name": "Jake Tyler Heggestad",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2017",
+      "program": "Honors Thesis",
+      "position": "Duke Biomedical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p663",
+    "name": "Madisen Rosztoczy",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2017",
+      "program": "Murphy Scholar",
+      "position": "University of Arizona College of Medicine, Medical Student"
+    }
+  },
+  {
+    "id": "p664",
+    "name": "Cindy Chen",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2016",
+      "position": "Regeneron"
+    }
+  },
+  {
+    "id": "p665",
+    "name": "Natalia Majewska",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2014-2016",
+      "position": "Johns Hopkins Chemical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p666",
+    "name": "Kim Anderson",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2014-2016",
+      "position": "Gingko Bioworks"
+    }
+  },
+  {
+    "id": "p667",
+    "name": "Connor Nash",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2014-2016"
+    }
+  },
+  {
+    "id": "p668",
+    "name": "Ellen Zhuang",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2015,
+      "program": "Murphy Scholar"
+    }
+  },
+  {
+    "id": "p669",
+    "name": "Zachary Lochmueller",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2014-2015"
+    }
+  },
+  {
+    "id": "p670",
+    "name": "Matthew Amrofell",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2013-2015",
+      "position": "Washington University, Energy, Environmental, and Chemical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p671",
+    "name": "Emm Fulk",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2013-2015",
+      "position": "Rice Systems, Synthetic and Physical Biology Program, PhD student"
+    }
+  },
+  {
+    "id": "p672",
+    "name": "Charlotte Mary ter Haar",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2013-2014",
+      "position": "Whitaker Fellow, EPFL Lausanne, Univ. of Illinois College of Medicine Chicago, Medical student"
+    }
+  },
+  {
+    "id": "p673",
+    "name": "Osman Jamil",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2013-2014",
+      "position": "Stanford Chemical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p674",
+    "name": "Mary Grace Weiss",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2013
+    }
+  },
+  {
+    "id": "p675",
+    "name": "Ashleigh Stoddart",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2013
+    }
+  },
+  {
+    "id": "p676",
+    "name": "Brett Owens",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2013
+    }
+  },
+  {
+    "id": "p677",
+    "name": "Vinithra Rajagopalan",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2012-2013"
+    }
+  },
+  {
+    "id": "p678",
+    "name": "Kyle Kim",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2012-2013"
+    }
+  },
+  {
+    "id": "p679",
+    "name": "Christina Burghard",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2011-2013",
+      "position": "NIH post-bacc, UCLA Bioinformatics, PhD student"
+    }
+  },
+  {
+    "id": "p680",
+    "name": "Emily Masters",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2011-2013",
+      "program": "Murphy Scholar",
+      "position": "Dow Chemical"
+    }
+  },
+  {
+    "id": "p681",
+    "name": "Elizabeth Trumbull",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2011-2012"
+    }
+  },
+  {
+    "id": "p682",
+    "name": "Kirsten Swonger",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": "2010-2012",
+      "position": "VA Hospital NY, Tulane Chemical Engineering, PhD student"
+    }
+  },
+  {
+    "id": "p683",
+    "name": "Joey Knox",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2011
+    }
+  },
+  {
+    "id": "p684",
+    "name": "Diana Lorenzini",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2010,
+      "position": "Accenture"
+    }
+  },
+  {
+    "id": "p685",
+    "name": "Ethan Altman",
+    "parent": "p163",
+    "relationship": 1,
+    "extra": {
+      "years": 2010,
+      "position": "A.T. Kearney"
+    }
+  },
+  {
+    "id": "p810",
+    "name": "Ellie Kornreich",
+    "parent": "p566",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p811",
+    "name": "Alexa Wiwi",
+    "parent": "p566",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p812",
+    "name": "Khing Masaya-anon",
+    "parent": "p566",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p686",
+    "name": "Brian Cho",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Biological Engineering",
+      "prior_degree": "BS, Northeastern University"
+    }
+  },
+  {
+    "id": "p687",
+    "name": "Ishika Govil",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Chemical Engineering",
+      "prior_degree": "BS, University of Delaware",
+      "fellowship": "NSF Graduate Research Fellow"
+    }
+  },
+  {
+    "id": "p688",
+    "name": "Tran Luu",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Biological Engineering",
+      "prior_degree": "BS, University of Washington",
+      "fellowship": "NSF Graduate Research Fellow, MIT Accenture Fellow"
+    }
+  },
+  {
+    "id": "p689",
+    "name": "Casey McGuire",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Biological Engineering",
+      "prior_degree": "MS, Yale University, BS, Yale University"
+    }
+  },
+  {
+    "id": "p690",
+    "name": "Miyu Mudalamane",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Chemical Engineering",
+      "prior_degree": "BS, University of Delaware",
+      "fellowship": "NSF Graduate Research Fellow"
+    }
+  },
+  {
+    "id": "p691",
+    "name": "Megan Priestley",
+    "parent": "p577",
+    "relationship": 4,
+    "extra": {
+      "prior_degree": "PhD, University of Manchester, MSc, University of Manchester",
+      "fellowship": "Terri Brodeur Breast Cancer Foundation Fellow"
+    }
+  },
+  {
+    "id": "p692",
+    "name": "Leo Williams",
+    "parent": "p577",
+    "relationship": 3,
+    "extra": {
+      "program": "Biological Engineering",
+      "prior_degree": "BS, California Institute of Technology"
+    }
+  },
+  {
+    "id": "p693",
+    "name": "Sarah Bernard",
+    "parent": "p577",
+    "relationship": 1,
+    "extra": {
+      "program": "Bioengineering",
+      "note": "actual mentor is Ishika Govil, not Jessica directly"
+    }
+  },
+  {
+    "id": "p694",
+    "name": "Chelsy Goodwill",
+    "parent": "p577",
+    "relationship": 1,
+    "extra": {
+      "program": "Bioengineering",
+      "note": "actual mentor is Tran Luu, not Jessica directly"
+    }
+  },
+  {
+    "id": "p695",
+    "name": "Lucy Teng",
+    "parent": "p577",
+    "relationship": 1,
+    "extra": {
+      "note": "actual mentors are Brian Cho and Miyu Mudalamane, not Jessica directly"
+    }
+  },
+  {
+    "id": "p696",
+    "name": "Adeline Schmidt",
+    "parent": "p577",
+    "relationship": 1,
+    "extra": {
+      "program": "Chemical Engineering, University of Florida",
+      "note": "actual mentor is Tran Luu, not Jessica directly"
+    }
+  },
+  {
+    "id": "p697",
+    "name": "Daniel Payan",
+    "parent": "p579",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p698",
+    "name": "Stephen Landry",
+    "parent": "p579",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p699",
+    "name": "Mekhi Williams",
+    "parent": "p579",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p700",
+    "name": "Seonyun Moon",
+    "parent": "p579",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p701",
+    "name": "Madan Gopal",
+    "parent": "p579",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p813",
+    "name": "Ekta Bhattacharya",
+    "parent": "p580",
+    "relationship": 4,
+    "extra": {
+      "years": "2026-present"
+    }
+  },
+  {
+    "id": "p814",
+    "name": "Sarah Noga",
+    "parent": "p580",
+    "relationship": 3,
+    "extra": {
+      "years": "2024-present",
+      "program": "Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p815",
+    "name": "Nicole Babineau",
+    "parent": "p580",
+    "relationship": 3,
+    "extra": {
+      "years": "2025-present",
+      "program": "Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p816",
+    "name": "Nastassja Corrado",
+    "parent": "p580",
+    "relationship": 3,
+    "extra": {
+      "years": "2025-present",
+      "program": "Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p817",
+    "name": "Andrew Loveland",
+    "parent": "p580",
+    "relationship": 3,
+    "extra": {
+      "years": "2025-present",
+      "program": "Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p818",
+    "name": "Philip Smith",
+    "parent": "p580",
+    "relationship": 3,
+    "extra": {
+      "years": "2026-present",
+      "program": "Chemical and Biological Engineering"
+    }
+  },
+  {
+    "id": "p713",
+    "name": "Carrigan Ring",
+    "parent": "p601",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p714",
+    "name": "Roza Gabdullina",
+    "parent": "p601",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p715",
+    "name": "Phoenix Shomody",
+    "parent": "p601",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p716",
+    "name": "Namjin Cho",
+    "parent": "p609",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p717",
+    "name": "Ravi Kumar Devarapalli",
+    "parent": "p609",
+    "relationship": 4,
+    "extra": {}
+  },
+  {
+    "id": "p718",
+    "name": "Seo-Yeon Pang",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p719",
+    "name": "Hyeongwoo Park",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p720",
+    "name": "Byeongmin Chae",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p721",
+    "name": "Haneul Jin",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p722",
+    "name": "Dayeong Kim",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p723",
+    "name": "Hyeongseok Kim",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p724",
+    "name": "Hyewon Jeon",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p725",
+    "name": "Bohyeon Song",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p726",
+    "name": "Yeji Choi",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p727",
+    "name": "Jingyeong Yoo",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p728",
+    "name": "Dong Myeong Lee",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p729",
+    "name": "Jihoo Lee",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p730",
+    "name": "Jiwoon Jeong",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p731",
+    "name": "Jung Hyeok Yoo",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p732",
+    "name": "Woojae Kim",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p733",
+    "name": "Jiung Han",
+    "parent": "p609",
+    "relationship": 3,
+    "extra": {}
+  },
+  {
+    "id": "p702",
+    "name": "Yuhao Zhang",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2022-present"
+    }
+  },
+  {
+    "id": "p703",
+    "name": "Yuhao Luo",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2023-present"
+    }
+  },
+  {
+    "id": "p704",
+    "name": "Yiyao Guo",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2024-present"
+    }
+  },
+  {
+    "id": "p705",
+    "name": "Yufei Zhang",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2021-2026"
+    }
+  },
+  {
+    "id": "p706",
+    "name": "Xiao Zheng",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2025"
+    }
+  },
+  {
+    "id": "p707",
+    "name": "Haofan Lu",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2020-2025"
+    }
+  },
+  {
+    "id": "p708",
+    "name": "Xiangyang Ji",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2019-2025"
+    }
+  },
+  {
+    "id": "p709",
+    "name": "Fang Ba",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2019-2024"
+    }
+  },
+  {
+    "id": "p710",
+    "name": "Shuhui Huang",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2023"
+    }
+  },
+  {
+    "id": "p711",
+    "name": "Huiling Xu",
+    "parent": "p610",
+    "relationship": 3,
+    "extra": {
+      "years": "2018-2023"
+    }
+  },
+  {
+    "id": "p712",
+    "name": "Yushi Liu",
+    "parent": "p610",
+    "relationship": 4,
+    "extra": {
+      "years": "2019-2021"
+    }
+  },
+  {
+    "id": "p734",
+    "name": "Jiacheng Zhou",
+    "parent": "p616",
+    "relationship": 3,
+    "extra": {
+      "years": "2017-present",
+      "program": "CHBE",
+      "note": "previously M.S. (Aug. 2019) in Hong lab, continued as Ph.D. student"
+    }
+  },
+  {
+    "id": "p735",
+    "name": "Sungjun An",
+    "parent": "p616",
+    "relationship": 3,
+    "extra": {
+      "years": "present",
+      "note": "listed only as 'Graduate student' (no MAS qualifier, unlike master's students below) -- assumed PhD track, not confirmed"
+    }
+  },
+  {
+    "id": "p736",
+    "name": "Tejaswini Ramakrishn Hegde",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "present",
+      "program": "MAS Pharmaceutical Engineering"
+    }
+  },
+  {
+    "id": "p737",
+    "name": "Ogechi Okocha Rufus",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "present",
+      "program": "MAS Pharmaceutical Engineering"
+    }
+  },
+  {
+    "id": "p738",
+    "name": "Gabrielle Collins",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "present",
+      "note": "co-terminal B.S. Biomedical Engineering + M.S. Pharmaceutical Engineering"
+    }
+  },
+  {
+    "id": "p739",
+    "name": "Yashwant Kathirvel",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": "present",
+      "program": "CHBE, PURE program"
+    }
+  },
+  {
+    "id": "p740",
+    "name": "Xing Jin",
+    "parent": "p616",
+    "relationship": 3,
+    "extra": {
+      "years": "2016-2020",
+      "program": "CHBE Ph.D., Dec. 2020"
+    }
+  },
+  {
+    "id": "p741",
+    "name": "Kuili Fang",
+    "parent": "p616",
+    "relationship": 3,
+    "extra": {
+      "years": "2016-2020",
+      "program": "CHBE Ph.D., Dec. 2020"
+    }
+  },
+  {
+    "id": "p742",
+    "name": "Ana Serrasota",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2020,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p743",
+    "name": "Mar\u00eda Garc\u00eda-Zarandieta Mart\u00ednez",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2020,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p744",
+    "name": "Riya Narjari",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "2018-2020",
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p745",
+    "name": "Sandra De La Torre",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2019,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p746",
+    "name": "Gabriella Richey",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2019,
+      "program": "NSF REU student, Indiana University"
+    }
+  },
+  {
+    "id": "p747",
+    "name": "Kaixi Wu",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2019,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p748",
+    "name": "Daniel Medina",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": "2018-2019",
+      "program": "BME undergraduate"
+    }
+  },
+  {
+    "id": "p749",
+    "name": "Wesley Lo",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2018,
+      "note": "co-terminal BME-CHBE undergraduate"
+    }
+  },
+  {
+    "id": "p750",
+    "name": "Vasanti Dhakate",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2019,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p751",
+    "name": "Lindsey Marie Steele Kokal",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2018,
+      "program": "NSF REU student, Rose-Hulman Institute of Technology"
+    }
+  },
+  {
+    "id": "p752",
+    "name": "Alejandro Ferraces",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2018,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p753",
+    "name": "Xinhao Shao",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "2017-2018",
+      "program": "CHBE MAS",
+      "position": "Ph.D. student at UIC"
+    }
+  },
+  {
+    "id": "p754",
+    "name": "Mengya Wang",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "2016-2018",
+      "program": "CHBE M.S., Dec. 2017"
+    }
+  },
+  {
+    "id": "p755",
+    "name": "Srinidhi Kishor",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2018,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p756",
+    "name": "Moksha Shah",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2018,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p757",
+    "name": "Kumar Aditya",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": 2017,
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p758",
+    "name": "Alex Mayer",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2017,
+      "program": "CHBE undergraduate"
+    }
+  },
+  {
+    "id": "p759",
+    "name": "Shweta Shree",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2017,
+      "note": "visiting undergraduate researcher, Birla Institute of Technology, Mesra, India"
+    }
+  },
+  {
+    "id": "p760",
+    "name": "Inwha Kim",
+    "parent": "p616",
+    "relationship": 2,
+    "extra": {
+      "years": "2016-2017",
+      "program": "CHBE MAS"
+    }
+  },
+  {
+    "id": "p761",
+    "name": "Bader Jarai",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2017",
+      "program": "CHBE undergraduate",
+      "position": "Ph.D. student at University of Delaware"
+    }
+  },
+  {
+    "id": "p762",
+    "name": "Sung Min Choi Hong",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": "2016-2017",
+      "program": "CHBE undergraduate",
+      "position": "University of Chicago"
+    }
+  },
+  {
+    "id": "p763",
+    "name": "Olga Zvarych",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": "2015-2016",
+      "program": "CHBE undergraduate",
+      "position": "UL"
+    }
+  },
+  {
+    "id": "p764",
+    "name": "Vesna Naumovski",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2016,
+      "note": "co-terminal BME-CHBE undergraduate"
+    }
+  },
+  {
+    "id": "p765",
+    "name": "Brian Colon-Rodriguez",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2016,
+      "program": "CHBE undergraduate",
+      "position": "US Navy"
+    }
+  },
+  {
+    "id": "p766",
+    "name": "Nathan Donahue",
+    "parent": "p616",
+    "relationship": 1,
+    "extra": {
+      "years": 2016,
+      "program": "Chemistry undergraduate"
+    }
+  }
+]

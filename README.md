@@ -68,6 +68,66 @@ out with `database_example.json`.
 - **File** menu: New, Open, Save, Save As, Load Example Data, Export Tree as
   PNG.
 
+## Web Viewer (GitHub Pages)
+
+`docs/` contains a static, read-only web version of the tree for sharing
+publicly — no editing, just browsing. It's built with plain HTML/CSS/JS plus
+[D3.js](https://d3js.org/) (loaded from a CDN), so it needs no build step and
+runs entirely in the browser.
+
+### Preview locally
+
+Browsers block `fetch()` of local files opened directly (`file://`), so serve
+the folder over HTTP instead:
+
+```bash
+python -m http.server 8000 --directory docs
+```
+
+Then open `http://localhost:8000/`.
+
+### Deploy to GitHub Pages
+
+1. Push this repo to GitHub.
+2. In **Settings > Pages**, set **Source** to "Deploy from a branch", branch
+   `main`, folder `/docs`.
+3. Replace `docs/data.json` with your own tree (same schema as below) — for
+   example, copy a file you saved from the desktop app:
+   ```bash
+   cp DIC_Wang_Family_Tree.json docs/data.json
+   ```
+4. Commit and push; GitHub will publish the site at
+   `https://<username>.github.io/<repo>/`.
+
+You can also point the viewer at a different JSON file without renaming
+anything, e.g. `index.html?data=my_other_tree.json`.
+
+### Features
+
+- Styled after [FamilySearch](https://www.familysearch.org/)'s tree view:
+  rounded person cards with colored avatar initials, laid out generation by
+  generation left-to-right, connected by soft curved lines.
+- **Filters** panel (top right) lets you show/hide individuals by
+  relationship type (undergrad, master's, PhD, postdoc, unknown), with a live
+  count of how many of each are in the tree. Hiding a type reconnects that
+  person's visible descendants to their nearest visible ancestor, so the tree
+  never breaks apart.
+- **Expand/collapse in both directions** to isolate any part of the tree:
+  - Click the **›** button on the right edge of a card to expand/collapse
+    that person's descendants.
+  - Click the **‹** button on the left edge to isolate everything from that
+    person down, hiding their ancestors. A breadcrumb trail appears so you
+    can jump back to any ancestor, or all the way to "Full Tree".
+  - As in the desktop app, a person whose children have no children of
+    their own starts collapsed, and expands into a compact grid grouped by
+    relationship type rather than one long column — this keeps a handful of
+    prolific advisors from making the whole tree unreadably tall.
+- **Search** by name; results jump to and highlight that person, expanding
+  any collapsed ancestors along the way so they're actually visible.
+- Click any card to open a detail panel with their advisor, direct/total
+  descendant counts, and any `extra` fields.
+- Scroll to zoom, drag to pan, or use the on-screen zoom controls.
+
 ## Database Schema
 
 Each individual in the family tree is represented as a JSON object with the following fields:
