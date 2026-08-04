@@ -6403,5 +6403,29 @@
       "years": "2026-present",
       "program": "Chemical and Biological Engineering"
     }
+  },
+  {
+    "id": "p819",
+    "name": "Jeehye Kim",
+    "parent": "p613",
+    "relationship": 3
+  },
+  {
+    "id": "p820",
+    "name": "Caroline Copeland",
+    "parent": "p613",
+    "relationship": 3
+  },
+  {
+    "id": "p821",
+    "name": "Claire Lanclos",
+    "parent": "p613",
+    "relationship": 3
+  },
+  {
+    "id": "p822",
+    "name": "Kassidy Porche",
+    "parent": "p613",
+    "relationship": 3
   }
 ]
