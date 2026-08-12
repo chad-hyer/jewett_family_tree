@@ -501,3 +501,154 @@ path.mini-link {
   padding: 5px 10px;
 }
 .detail-link-btn:hover { background: #d7ecee; }
+
+/* --- Print dialog --- */
+
+#print-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 30, 40, 0.45);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#print-modal-overlay.hidden { display: none; }
+
+#print-modal {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow-hover);
+  padding: 24px;
+  width: 380px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#print-modal h2 {
+  font-size: 17px;
+  margin: 0 0 16px;
+}
+
+#print-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+#print-modal-close:hover { color: var(--ink); }
+
+.print-field {
+  margin-bottom: 14px;
+}
+.print-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+#print-paper-preset,
+#print-custom-width,
+#print-custom-height,
+#print-custom-unit {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: var(--ink);
+  background: #fff;
+}
+#print-paper-preset { width: 100%; }
+
+.print-custom-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.print-custom-row input[type="number"] { width: 70px; }
+.print-custom-row span { color: var(--muted); }
+
+#print-custom-size.hidden { display: none; }
+
+.print-radio-group {
+  border-color: var(--border);
+}
+.print-radio-group button {
+  background: #fff;
+  color: var(--ink);
+  border-right: 1px solid var(--border);
+  font-size: 12.5px;
+  flex: 1;
+}
+.print-radio-group button.active {
+  background: var(--accent);
+  color: #fff;
+}
+.print-radio-group button:hover:not(.active) {
+  background: var(--accent-light);
+}
+
+#print-zoom { width: 100%; }
+#print-zoom-field.hidden { display: none; }
+
+.print-summary {
+  background: var(--accent-light);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--accent-dark);
+  margin-bottom: 16px;
+}
+
+.print-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.print-go-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.print-go-btn:hover { background: var(--accent-dark); }
+
+#print-root { display: none; }
+
+/* Only the generated print pages are shown to the printer - everything
+   else in the app (header, canvas, dialogs) is hidden for the print media
+   only, never on screen. */
+@media print {
+  #app-header, #breadcrumb, #tree-container, #detail-panel,
+  #filter-panel, #print-modal-overlay {
+    display: none !important;
+  }
+  #print-root { display: block; }
+  body { overflow: visible; }
+}
+
+.print-page {
+  page-break-after: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.print-page:last-child { page-break-after: auto; }
+
+.print-page-label {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 8px;
+  color: #999;
+  font-family: sans-serif;
+}

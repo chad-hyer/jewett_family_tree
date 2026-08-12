@@ -79,6 +79,7 @@ const state = {
   visibleTypes: new Set([0, 1, 2, 3, 4]),
   orientation: "landscape", // "landscape" | "portrait" | "fan"
   lastNodePositions: new Map(), // id -> {x, y} in screen space, set on every render
+  lastBounds: null, // {minX, minY, maxX, maxY} of the last rendered content, for printing
 };
 
 let svg, zoomLayer, zoomBehavior;
@@ -482,102 +483,155 @@ function coAdvisorLinkPath(p0, p1) {
 
 // ---------- Rendering ----------
 
-function render(opts = {}) {
-  const forest = buildForest();
+// Computes every position needed to draw the tree for a given orientation,
+// without touching the live DOM or (permanently) any shared state - this
+// lets render() and the print-preview math share one source of truth for
+// layout, instead of two copies that could drift apart. `orientation` is
+// applied only for the duration of this call.
+function computeLayoutSnapshot(orientation) {
+  const previousOrientation = state.orientation;
+  state.orientation = orientation;
+  try {
+    const forest = buildForest();
+    if (forest.length === 0) {
+      return { empty: true };
+    }
 
-  document.getElementById("empty-state").classList.toggle("hidden", forest.length > 0);
-  if (forest.length === 0) {
+    const totalV = layoutForest(forest);
+    const { nodes: allNodes, links: allLinks } = flattenTree(forest);
+
+    for (const n of allNodes) {
+      const p = mapToScreen(n.u, n.v, totalV);
+      n.sx = p.x;
+      n.sy = p.y;
+    }
+
+    const positions = new Map();
+    for (const n of allNodes) {
+      positions.set(n.id, { x: n.sx, y: n.sy });
+    }
+
+    // Leaf-cluster grids: computed after the main layout so they can anchor
+    // off each parent's final position. Every expanded cluster also gets a
+    // small toggle floating just above its grid so it can be collapsed
+    // again without needing a full card of its own.
+    const miniGroupLabels = [];
+    const miniMembers = [];
+    const miniLinks = [];
+    const clusterCollapseToggles = [];
+    for (const n of allNodes) {
+      if (!n.leafCluster) continue;
+      const { groupLabels, members } = computeLeafClusterPositions(n);
+      for (const g of groupLabels) {
+        const p = mapToScreen(g.u, g.v, totalV);
+        miniGroupLabels.push({ x: p.x, y: p.y, relationship: g.relationship, count: g.count });
+      }
+      for (const m of members) {
+        const p = mapToScreen(m.u, m.v, totalV);
+        miniMembers.push({ person: m.person, x: p.x, y: p.y });
+        miniLinks.push({ id: m.person.id, p0: { x: n.sx, y: n.sy }, p1: p });
+      }
+      if (n.isCluster) {
+        const topPoint = mapToScreen(n.u, n.v - n.leafCluster.totalHeight / 2 - 8, totalV);
+        clusterCollapseToggles.push({ id: n.id, x: topPoint.x, y: topPoint.y });
+      }
+    }
+    for (const m of miniMembers) {
+      positions.set(m.person.id, { x: m.x, y: m.y });
+    }
+
+    // A co-advisee can be completely absent from the current view - e.g.
+    // when isolating on their secondary advisor's branch, since only
+    // primary parent links are followed to build the tree. Rather than
+    // just dropping the link, give them a small floating card stacked
+    // above whichever visible co-advisor they're missing from, so the
+    // relationship stays visible no matter which of a student's advisors
+    // you're focused on.
+    const orphanedByAdvisor = new Map();
+    for (const edge of state.coAdvisorEdges) {
+      if (positions.has(edge.studentId)) continue;
+      const advisorPos = positions.get(edge.advisorId);
+      if (!advisorPos) continue;
+      if (!orphanedByAdvisor.has(edge.advisorId)) orphanedByAdvisor.set(edge.advisorId, []);
+      orphanedByAdvisor.get(edge.advisorId).push(edge.studentId);
+    }
+    for (const [advisorId, studentIds] of orphanedByAdvisor.entries()) {
+      const advisorPos = positions.get(advisorId);
+      const totalH = studentIds.length * (MINI_CARD_HEIGHT + MINI_GAP_Y) - MINI_GAP_Y;
+      let y = advisorPos.y - CARD_HEIGHT / 2 - 16 - totalH;
+      for (const sid of studentIds) {
+        const pos = { x: advisorPos.x, y };
+        miniMembers.push({ person: state.byId.get(sid), x: pos.x, y: pos.y, isAuxiliary: true });
+        positions.set(sid, pos);
+        y += MINI_CARD_HEIGHT + MINI_GAP_Y;
+      }
+    }
+
+    // Co-advisor cross-links: only drawn when both ends are currently visible.
+    const coAdvisorLinks = [];
+    for (const edge of state.coAdvisorEdges) {
+      const p0 = positions.get(edge.studentId);
+      const p1 = positions.get(edge.advisorId);
+      if (p0 && p1) {
+        const student = state.byId.get(edge.studentId);
+        const advisor = state.byId.get(edge.advisorId);
+        coAdvisorLinks.push({
+          id: `${edge.studentId}::${edge.advisorId}`,
+          p0,
+          p1,
+          label: `${student.name} co-advised by ${advisor.name}`,
+        });
+      }
+    }
+
+    const mainIds = new Set(allNodes.filter((d) => !d.isCluster).map((d) => d.id));
+    const clusterCardIds = new Set(allNodes.filter((d) => d.isCluster && d.collapsed).map((d) => d.id));
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (const [id, pos] of positions.entries()) {
+      const isBig = mainIds.has(id) || clusterCardIds.has(id);
+      const w = isBig ? CARD_WIDTH : MINI_CARD_WIDTH;
+      const h = isBig ? CARD_HEIGHT : MINI_CARD_HEIGHT;
+      minX = Math.min(minX, pos.x - w / 2);
+      maxX = Math.max(maxX, pos.x + w / 2);
+      minY = Math.min(minY, pos.y - h / 2);
+      maxY = Math.max(maxY, pos.y + h / 2);
+    }
+
+    return {
+      empty: false,
+      allNodes,
+      allLinks,
+      miniGroupLabels,
+      miniMembers,
+      miniLinks,
+      clusterCollapseToggles,
+      coAdvisorLinks,
+      positions,
+      bounds: { minX, minY, maxX, maxY },
+    };
+  } finally {
+    state.orientation = previousOrientation;
+  }
+}
+
+function render(opts = {}) {
+  const snapshot = computeLayoutSnapshot(state.orientation);
+
+  document.getElementById("empty-state").classList.toggle("hidden", !snapshot.empty);
+  if (snapshot.empty) {
     zoomLayer.selectAll("*").remove();
-    state.lastNodePositions.clear();
+    state.lastNodePositions = new Map();
+    state.lastBounds = null;
     updateHeaderSubtitle();
     return;
   }
 
-  const totalV = layoutForest(forest);
-  const { nodes: allNodes, links: allLinks } = flattenTree(forest);
-
-  for (const n of allNodes) {
-    const p = mapToScreen(n.u, n.v, totalV);
-    n.sx = p.x;
-    n.sy = p.y;
-  }
-
-  state.lastNodePositions.clear();
-  for (const n of allNodes) {
-    state.lastNodePositions.set(n.id, { x: n.sx, y: n.sy });
-  }
-
-  // Leaf-cluster grids: computed after the main layout so they can anchor
-  // off each parent's final position. Every expanded cluster also gets a
-  // small toggle floating just above its grid so it can be collapsed again
-  // without needing a full card of its own.
-  const miniGroupLabels = [];
-  const miniMembers = [];
-  const miniLinks = [];
-  const clusterCollapseToggles = [];
-  for (const n of allNodes) {
-    if (!n.leafCluster) continue;
-    const { groupLabels, members } = computeLeafClusterPositions(n);
-    for (const g of groupLabels) {
-      const p = mapToScreen(g.u, g.v, totalV);
-      miniGroupLabels.push({ x: p.x, y: p.y, relationship: g.relationship, count: g.count });
-    }
-    for (const m of members) {
-      const p = mapToScreen(m.u, m.v, totalV);
-      miniMembers.push({ person: m.person, x: p.x, y: p.y });
-      miniLinks.push({ id: m.person.id, p0: { x: n.sx, y: n.sy }, p1: p });
-    }
-    if (n.isCluster) {
-      const topPoint = mapToScreen(n.u, n.v - n.leafCluster.totalHeight / 2 - 8, totalV);
-      clusterCollapseToggles.push({ id: n.id, x: topPoint.x, y: topPoint.y });
-    }
-  }
-  for (const m of miniMembers) {
-    state.lastNodePositions.set(m.person.id, { x: m.x, y: m.y });
-  }
-
-  // A co-advisee can be completely absent from the current view - e.g. when
-  // isolating on their secondary advisor's branch, since only primary
-  // parent links are followed to build the tree. Rather than just dropping
-  // the link, give them a small floating card stacked above whichever
-  // visible co-advisor they're missing from, so the relationship stays
-  // visible no matter which of a student's advisors you're focused on.
-  const orphanedByAdvisor = new Map();
-  for (const edge of state.coAdvisorEdges) {
-    if (state.lastNodePositions.has(edge.studentId)) continue;
-    const advisorPos = state.lastNodePositions.get(edge.advisorId);
-    if (!advisorPos) continue;
-    if (!orphanedByAdvisor.has(edge.advisorId)) orphanedByAdvisor.set(edge.advisorId, []);
-    orphanedByAdvisor.get(edge.advisorId).push(edge.studentId);
-  }
-  for (const [advisorId, studentIds] of orphanedByAdvisor.entries()) {
-    const advisorPos = state.lastNodePositions.get(advisorId);
-    const totalH = studentIds.length * (MINI_CARD_HEIGHT + MINI_GAP_Y) - MINI_GAP_Y;
-    let y = advisorPos.y - CARD_HEIGHT / 2 - 16 - totalH;
-    for (const sid of studentIds) {
-      const pos = { x: advisorPos.x, y };
-      miniMembers.push({ person: state.byId.get(sid), x: pos.x, y: pos.y, isAuxiliary: true });
-      state.lastNodePositions.set(sid, pos);
-      y += MINI_CARD_HEIGHT + MINI_GAP_Y;
-    }
-  }
-
-  // Co-advisor cross-links: only drawn when both ends are currently visible.
-  const coAdvisorLinks = [];
-  for (const edge of state.coAdvisorEdges) {
-    const p0 = state.lastNodePositions.get(edge.studentId);
-    const p1 = state.lastNodePositions.get(edge.advisorId);
-    if (p0 && p1) {
-      const student = state.byId.get(edge.studentId);
-      const advisor = state.byId.get(edge.advisorId);
-      coAdvisorLinks.push({
-        id: `${edge.studentId}::${edge.advisorId}`,
-        p0,
-        p1,
-        label: `${student.name} co-advised by ${advisor.name}`,
-      });
-    }
-  }
+  const {
+    allNodes, allLinks, miniGroupLabels, miniMembers, miniLinks,
+    clusterCollapseToggles, coAdvisorLinks, positions, bounds,
+  } = snapshot;
+  state.lastNodePositions = positions;
+  state.lastBounds = bounds;
 
   const searchQuery = (document.getElementById("search-input").value || "").trim().toLowerCase();
 
@@ -1205,6 +1259,259 @@ function loadPeople(people, statusMessage) {
   }
 }
 
+// ---------- Print ----------
+//
+// Reuses computeLayoutSnapshot() to lay out the current view (respecting
+// whatever's isolated/filtered/collapsed right now) under whichever
+// orientation best matches the chosen paper, then either scales it to fit
+// one sheet or tiles it across as many same-size sheets as needed at a
+// legible zoom level. Tiling is done by cloning the live, just-rendered SVG
+// group and giving each page's <svg> a viewBox cropped to that page's
+// slice, so printed pages use the exact same drawing code as the screen.
+
+const PRINT_PPI = 96; // reference CSS pixels per inch at 100% print zoom
+const PRINT_MARGIN_IN = 0.4;
+const PAPER_PRESETS = {
+  letter: { w: 8.5, h: 11 },
+  legal: { w: 8.5, h: 14 },
+  tabloid: { w: 11, h: 17 },
+  a4: { w: 210 / 25.4, h: 297 / 25.4 },
+  a3: { w: 297 / 25.4, h: 420 / 25.4 },
+};
+
+function getSelectedRadioValue(groupId) {
+  const active = document.querySelector(`#${groupId} button.active`);
+  return active ? active.dataset.value : null;
+}
+
+function setupRadioGroup(groupId, onChange) {
+  const buttons = document.querySelectorAll(`#${groupId} button`);
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.toggle("active", b === btn));
+      onChange();
+    });
+  });
+}
+
+function getPrintPaperDims() {
+  const preset = document.getElementById("print-paper-preset").value;
+  let w, h;
+  if (preset === "custom") {
+    w = parseFloat(document.getElementById("print-custom-width").value) || 8.5;
+    h = parseFloat(document.getElementById("print-custom-height").value) || 11;
+    if (document.getElementById("print-custom-unit").value === "mm") {
+      w /= 25.4;
+      h /= 25.4;
+    }
+  } else {
+    const dims = PAPER_PRESETS[preset];
+    w = dims.w;
+    h = dims.h;
+  }
+  const orientation = getSelectedRadioValue("print-paper-orientation");
+  const lo = Math.min(w, h);
+  const hi = Math.max(w, h);
+  return orientation === "landscape" ? { width: hi, height: lo } : { width: lo, height: hi };
+}
+
+function resolvePrintTreeOrientation(paper) {
+  const choice = getSelectedRadioValue("print-tree-orientation");
+  if (choice === "auto") return paper.width > paper.height ? "landscape" : "portrait";
+  return choice;
+}
+
+// Given the tree's full bounding box (in the same app-pixel units used
+// everywhere else) and the chosen paper, decides how many app-pixels map
+// to one physical inch, then how many same-size pages that requires.
+function computePrintPlan(bounds, paperWidthIn, paperHeightIn, fitMode, zoomPercent) {
+  const treeWidthPx = Math.max(bounds.maxX - bounds.minX, 1);
+  const treeHeightPx = Math.max(bounds.maxY - bounds.minY, 1);
+  const usableWIn = Math.max(paperWidthIn - PRINT_MARGIN_IN * 2, 0.5);
+  const usableHIn = Math.max(paperHeightIn - PRINT_MARGIN_IN * 2, 0.5);
+
+  let effectivePpi;
+  if (fitMode === "single") {
+    // The smallest (most zoomed-out) pixels-per-inch that still lets the
+    // whole tree fit within one page in both dimensions.
+    effectivePpi = Math.max(treeWidthPx / usableWIn, treeHeightPx / usableHIn);
+  } else {
+    effectivePpi = PRINT_PPI * (100 / zoomPercent);
+  }
+
+  const usableWPx = usableWIn * effectivePpi;
+  const usableHPx = usableHIn * effectivePpi;
+  const cols = fitMode === "single" ? 1 : Math.max(1, Math.ceil(treeWidthPx / usableWPx));
+  const rows = fitMode === "single" ? 1 : Math.max(1, Math.ceil(treeHeightPx / usableHPx));
+
+  return { effectivePpi, usableWIn, usableHIn, usableWPx, usableHPx, cols, rows, bounds, paperWidthIn, paperHeightIn };
+}
+
+// A tree's outline is rarely a filled rectangle, so naively tiling its
+// bounding box can produce pages with nothing on them at all (e.g. a
+// corner where one branch runs tall and another runs wide). Skipping those
+// keeps the printed page count matching what's actually on the tree,
+// rather than the shape of its bounding box.
+function computeOccupiedTiles(positions, plan) {
+  const { bounds, usableWPx, usableHPx, cols, rows } = plan;
+  const occupied = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const tileMinX = bounds.minX + c * usableWPx;
+      const tileMinY = bounds.minY + r * usableHPx;
+      const hasContent = positions.some(
+        (p) =>
+          p.x >= tileMinX - CARD_WIDTH &&
+          p.x <= tileMinX + usableWPx + CARD_WIDTH &&
+          p.y >= tileMinY - CARD_HEIGHT &&
+          p.y <= tileMinY + usableHPx + CARD_HEIGHT
+      );
+      if (hasContent) occupied.push({ r, c, tileMinX, tileMinY });
+    }
+  }
+  return occupied;
+}
+
+function updatePrintSummary() {
+  const preset = document.getElementById("print-paper-preset").value;
+  document.getElementById("print-custom-size").classList.toggle("hidden", preset !== "custom");
+  const fitMode = getSelectedRadioValue("print-fit-mode");
+  document.getElementById("print-zoom-field").classList.toggle("hidden", fitMode === "single");
+
+  const zoomPercent = Number(document.getElementById("print-zoom").value);
+  document.getElementById("print-zoom-value").textContent = `${zoomPercent}%`;
+
+  const paper = getPrintPaperDims();
+  const treeOrientation = resolvePrintTreeOrientation(paper);
+  const snapshot = computeLayoutSnapshot(treeOrientation);
+  const summaryEl = document.getElementById("print-summary");
+  if (snapshot.empty) {
+    summaryEl.textContent = "Nothing to print.";
+    return;
+  }
+  const plan = computePrintPlan(snapshot.bounds, paper.width, paper.height, fitMode, zoomPercent);
+  const occupied = computeOccupiedTiles([...snapshot.positions.values()], plan);
+  const total = occupied.length;
+  const skipped = plan.rows * plan.cols - total;
+  summaryEl.textContent =
+    total <= 1
+      ? `Fits on 1 page (${treeOrientation} tree layout).`
+      : `Prints across ${total} page${total > 1 ? "s" : ""} (${treeOrientation} tree layout)` +
+        (skipped > 0 ? `, ${skipped} blank tile${skipped > 1 ? "s" : ""} skipped.` : ".");
+}
+
+// Slices the just-rendered, identity-transformed tree into one <div class=
+// "print-page"> per tile, each holding a clone of the live SVG group with
+// its viewBox cropped to that tile - so every page uses the exact same
+// cards/links/labels as the screen, just a different visible window onto
+// the same coordinate space.
+function buildPrintPages(plan) {
+  const root = document.getElementById("print-root");
+  root.innerHTML = "";
+  const sourceG = zoomLayer.node();
+  const { usableWIn, usableHIn, usableWPx, usableHPx, rows, cols, paperWidthIn, paperHeightIn } = plan;
+  const occupied = computeOccupiedTiles([...state.lastNodePositions.values()], plan);
+
+  for (const { r, c, tileMinX, tileMinY } of occupied) {
+    const page = document.createElement("div");
+    page.className = "print-page";
+    page.style.width = `${paperWidthIn}in`;
+    page.style.height = `${paperHeightIn}in`;
+
+    const svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svgEl.setAttribute("viewBox", `${tileMinX} ${tileMinY} ${usableWPx} ${usableHPx}`);
+    svgEl.setAttribute("width", `${usableWIn}in`);
+    svgEl.setAttribute("height", `${usableHIn}in`);
+    svgEl.style.overflow = "hidden";
+    svgEl.style.background = "#ffffff";
+
+    const gClone = sourceG.cloneNode(true);
+    gClone.removeAttribute("transform");
+    svgEl.appendChild(gClone);
+    page.appendChild(svgEl);
+
+    if (rows * cols > 1) {
+      const label = document.createElement("div");
+      label.className = "print-page-label";
+      label.textContent = `Row ${r + 1}/${rows} · Col ${c + 1}/${cols}`;
+      page.appendChild(label);
+    }
+
+    root.appendChild(page);
+  }
+}
+
+// Temporarily switches the live view to the chosen print orientation and a
+// 1:1 zoom so its rendered coordinates match the bounding box used for
+// tiling, builds the print pages, opens the browser's print dialog, then
+// restores exactly what was on screen before.
+function runPrint() {
+  if (!state.lastNodePositions.size) {
+    alert("There's nothing to print.");
+    return;
+  }
+
+  const paper = getPrintPaperDims();
+  const treeOrientation = resolvePrintTreeOrientation(paper);
+  const fitMode = getSelectedRadioValue("print-fit-mode");
+  const zoomPercent = Number(document.getElementById("print-zoom").value);
+
+  const previousOrientation = state.orientation;
+  const previousTransform = d3.zoomTransform(svg.node());
+
+  state.orientation = treeOrientation;
+  render({ refit: false });
+  svg.call(zoomBehavior.transform, d3.zoomIdentity);
+
+  const plan = computePrintPlan(state.lastBounds, paper.width, paper.height, fitMode, zoomPercent);
+  buildPrintPages(plan);
+  document.getElementById("print-page-style").textContent =
+    `@page { size: ${paper.width}in ${paper.height}in; margin: 0; }`;
+
+  const restore = () => {
+    window.removeEventListener("afterprint", restore);
+    document.getElementById("print-root").innerHTML = "";
+    state.orientation = previousOrientation;
+    render({ refit: false });
+    svg.call(zoomBehavior.transform, previousTransform);
+  };
+  window.addEventListener("afterprint", restore);
+
+  // Let the browser paint the newly-built print DOM before invoking print,
+  // rather than racing it with a synchronous call right after a big
+  // DOM mutation.
+  setTimeout(() => window.print(), 50);
+}
+
+function setupPrint() {
+  const overlay = document.getElementById("print-modal-overlay");
+  const closeModal = () => overlay.classList.add("hidden");
+
+  document.getElementById("print-btn").addEventListener("click", () => {
+    overlay.classList.remove("hidden");
+    updatePrintSummary();
+  });
+  document.getElementById("print-modal-close").addEventListener("click", closeModal);
+  document.getElementById("print-cancel").addEventListener("click", closeModal);
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) closeModal();
+  });
+
+  document.getElementById("print-paper-preset").addEventListener("change", updatePrintSummary);
+  document.getElementById("print-custom-width").addEventListener("input", updatePrintSummary);
+  document.getElementById("print-custom-height").addEventListener("input", updatePrintSummary);
+  document.getElementById("print-custom-unit").addEventListener("change", updatePrintSummary);
+  document.getElementById("print-zoom").addEventListener("input", updatePrintSummary);
+  setupRadioGroup("print-paper-orientation", updatePrintSummary);
+  setupRadioGroup("print-tree-orientation", updatePrintSummary);
+  setupRadioGroup("print-fit-mode", updatePrintSummary);
+
+  document.getElementById("print-go").addEventListener("click", () => {
+    closeModal();
+    runPrint();
+  });
+}
+
 // ---------- Detail panel ----------
 
 function openDetailPanel(person) {
@@ -1334,6 +1641,7 @@ async function init() {
   setupViewButtons();
   setupOrientation();
   setupUpload();
+  setupPrint();
   setupResize();
 
   let people;

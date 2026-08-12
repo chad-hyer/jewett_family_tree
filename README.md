@@ -155,6 +155,17 @@ gets uploaded anywhere, it's read entirely in your browser.
   dashed card floated next to whichever advisor is visible, so the
   relationship stays visible no matter which side you're looking from. See
   the schema note below.
+- **Print...** prints exactly what's currently on screen (whatever's
+  isolated/filtered/collapsed right now) sized to real paper. Pick a paper
+  size (Letter/Legal/Tabloid/A4/A3, or custom width × height in inches or
+  mm) and orientation; "Auto" tree layout switches between Landscape and
+  Portrait to match whichever fits the chosen paper best - the same
+  reorganization that happens when you click those buttons on screen, so
+  leaf-cluster grids reflow the same way, always anchored at their own
+  generation. Choose "Tile across pages" (with a zoom level) for a large
+  tree spread across multiple same-size sheets to tape together, or "Shrink
+  to one page" to fit everything at whatever scale that takes. Pages with
+  nothing on them are skipped automatically.
 
 ## Database Schema
 
