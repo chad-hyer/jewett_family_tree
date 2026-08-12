@@ -33,7 +33,7 @@ const MINI_GAP_X = 10;
 const MINI_GAP_Y = 7;
 const MINI_GROUP_GAP_Y = 22;
 const MINI_GROUP_LABEL_HEIGHT = 16;
-const MINI_MAX_COLS = 6;
+const MINI_MAX_COLS = 10;
 const LEAF_CLUSTER_PADDING = 20;
 
 // Fan/radial mode reuses the landscape breadth-vs-angle proportions that
@@ -236,6 +236,21 @@ function effectiveChildrenOf(id) {
   return out;
 }
 
+// How many columns make a grid of `n` members visually square, given that
+// a "column" costs miniDepthSize() pixels and a "row" costs
+// miniBreadthSize() pixels. Plain sqrt(n) (the previous formula) only
+// produces a square *count* of cols/rows, which looks square on screen only
+// when a cell happens to be as wide as it is tall - in portrait mode a
+// mini-card is over 4x wider than it is tall, so that produced grids more
+// than 4x wider than they were tall. Weighting by the actual cell
+// dimensions keeps the grid visually square in every orientation, which
+// also means portrait clusters use noticeably more of a tall page's height
+// instead of being squeezed into a short, wide strip.
+function leafClusterColumnCount(n) {
+  const idealCols = Math.sqrt(n * (miniBreadthSize() / miniDepthSize()));
+  return Math.min(MINI_MAX_COLS, Math.max(2, Math.round(idealCols)));
+}
+
 // Groups childless children into columns by relationship, then wraps each
 // column into a compact grid so even a cluster of 100+ members stays roughly
 // square instead of one very long line.
@@ -250,7 +265,7 @@ function buildLeafClusterLayout(kids) {
     .sort((a, b) => a - b)
     .map((rel) => {
       const members = byRel.get(rel).sort((a, b) => a.name.localeCompare(b.name));
-      const cols = Math.min(MINI_MAX_COLS, Math.max(2, Math.ceil(Math.sqrt(members.length))));
+      const cols = leafClusterColumnCount(members.length);
       const rows = Math.ceil(members.length / cols);
       const blockWidth = cols * (miniDepthSize() + MINI_GAP_X) - MINI_GAP_X;
       const blockHeight = MINI_GROUP_LABEL_HEIGHT + rows * (miniBreadthSize() + MINI_GAP_Y) - MINI_GAP_Y;
@@ -487,10 +502,15 @@ function coAdvisorLinkPath(p0, p1) {
 // without touching the live DOM or (permanently) any shared state - this
 // lets render() and the print-preview math share one source of truth for
 // layout, instead of two copies that could drift apart. `orientation` is
-// applied only for the duration of this call.
-function computeLayoutSnapshot(orientation) {
+// applied only for the duration of this call. `expandAll` temporarily
+// ignores collapsed clusters/branches entirely - useful for printing,
+// where a collapsed badge is dead weight (nothing to click on paper) and
+// showing everything gives print far more content to fill the page with.
+function computeLayoutSnapshot(orientation, { expandAll = false } = {}) {
   const previousOrientation = state.orientation;
+  const previousCollapsed = state.collapsedDescendants;
   state.orientation = orientation;
+  if (expandAll) state.collapsedDescendants = new Set();
   try {
     const forest = buildForest();
     if (forest.length === 0) {
@@ -611,6 +631,7 @@ function computeLayoutSnapshot(orientation) {
     };
   } finally {
     state.orientation = previousOrientation;
+    state.collapsedDescendants = previousCollapsed;
   }
 }
 
@@ -1383,7 +1404,8 @@ function updatePrintSummary() {
 
   const paper = getPrintPaperDims();
   const treeOrientation = resolvePrintTreeOrientation(paper);
-  const snapshot = computeLayoutSnapshot(treeOrientation);
+  const expandAll = document.getElementById("print-expand-all").checked;
+  const snapshot = computeLayoutSnapshot(treeOrientation, { expandAll });
   const summaryEl = document.getElementById("print-summary");
   if (snapshot.empty) {
     summaryEl.textContent = "Nothing to print.";
@@ -1398,6 +1420,22 @@ function updatePrintSummary() {
       ? `Fits on 1 page (${treeOrientation} tree layout).`
       : `Prints across ${total} page${total > 1 ? "s" : ""} (${treeOrientation} tree layout)` +
         (skipped > 0 ? `, ${skipped} blank tile${skipped > 1 ? "s" : ""} skipped.` : ".");
+
+  // "Shrink to one page" preserves the tree's exact aspect ratio, so a
+  // branch that's much wider than it is tall (or vice versa) than the
+  // chosen paper leaves a lot of that one page blank - no amount of
+  // reflowing individual clusters fixes that when it's the top-level
+  // shape that's mismatched. Tiling doesn't have this problem, since it
+  // never forces the content to match the page's proportions.
+  if (fitMode === "single") {
+    const fillX = (snapshot.bounds.maxX - snapshot.bounds.minX) / plan.usableWPx;
+    const fillY = (snapshot.bounds.maxY - snapshot.bounds.minY) / plan.usableHPx;
+    if (Math.min(fillX, fillY) < 0.4) {
+      summaryEl.textContent +=
+        " This branch's shape doesn't match one page well, so a lot of it will be blank - " +
+        '"Tile across pages" (or a different paper orientation) will make better use of the sheet.';
+    }
+  }
 }
 
 // Slices the just-rendered, identity-transformed tree into one <div class=
@@ -1455,11 +1493,14 @@ function runPrint() {
   const treeOrientation = resolvePrintTreeOrientation(paper);
   const fitMode = getSelectedRadioValue("print-fit-mode");
   const zoomPercent = Number(document.getElementById("print-zoom").value);
+  const expandAll = document.getElementById("print-expand-all").checked;
 
   const previousOrientation = state.orientation;
+  const previousCollapsed = state.collapsedDescendants;
   const previousTransform = d3.zoomTransform(svg.node());
 
   state.orientation = treeOrientation;
+  if (expandAll) state.collapsedDescendants = new Set();
   render({ refit: false });
   svg.call(zoomBehavior.transform, d3.zoomIdentity);
 
@@ -1472,6 +1513,7 @@ function runPrint() {
     window.removeEventListener("afterprint", restore);
     document.getElementById("print-root").innerHTML = "";
     state.orientation = previousOrientation;
+    state.collapsedDescendants = previousCollapsed;
     render({ refit: false });
     svg.call(zoomBehavior.transform, previousTransform);
   };
@@ -1502,6 +1544,7 @@ function setupPrint() {
   document.getElementById("print-custom-height").addEventListener("input", updatePrintSummary);
   document.getElementById("print-custom-unit").addEventListener("change", updatePrintSummary);
   document.getElementById("print-zoom").addEventListener("input", updatePrintSummary);
+  document.getElementById("print-expand-all").addEventListener("change", updatePrintSummary);
   setupRadioGroup("print-paper-orientation", updatePrintSummary);
   setupRadioGroup("print-tree-orientation", updatePrintSummary);
   setupRadioGroup("print-fit-mode", updatePrintSummary);

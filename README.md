@@ -155,17 +155,29 @@ gets uploaded anywhere, it's read entirely in your browser.
   dashed card floated next to whichever advisor is visible, so the
   relationship stays visible no matter which side you're looking from. See
   the schema note below.
-- **Print...** prints exactly what's currently on screen (whatever's
-  isolated/filtered/collapsed right now) sized to real paper. Pick a paper
-  size (Letter/Legal/Tabloid/A4/A3, or custom width × height in inches or
-  mm) and orientation; "Auto" tree layout switches between Landscape and
-  Portrait to match whichever fits the chosen paper best - the same
-  reorganization that happens when you click those buttons on screen, so
-  leaf-cluster grids reflow the same way, always anchored at their own
-  generation. Choose "Tile across pages" (with a zoom level) for a large
-  tree spread across multiple same-size sheets to tape together, or "Shrink
-  to one page" to fit everything at whatever scale that takes. Pages with
-  nothing on them are skipped automatically.
+- **Print...** prints whatever's currently isolated/filtered on screen,
+  sized to real paper. Pick a paper size (Letter/Legal/Tabloid/A4/A3, or
+  custom width × height in inches or mm) and orientation; "Auto" tree
+  layout switches between Landscape and Portrait to match whichever fits
+  the chosen paper best, and leaf-cluster grids reshape themselves to stay
+  visually square in either orientation instead of the same shape either
+  way. "Expand all collapsed groups for printing" (on by default) shows
+  full detail, since a collapsed badge is nothing to click on paper.
+  - **Tile across pages** (with a zoom level) spreads a tree across
+    however many same-size sheets it takes at a legible size, skipping any
+    page that would come out blank - this is the better choice whenever a
+    branch's overall shape (how many siblings vs. how many generations)
+    doesn't resemble the page's proportions, which "shrink to one page"
+    can't fix by itself since it always preserves the tree's aspect ratio.
+  - **Shrink to one page** fits everything on a single sheet at whatever
+    scale that takes. If the branch you're printing is a very different
+    shape than the paper (say, one advisor's many direct, mostly-childless
+    students on a tall page), most of that one page will end up blank -
+    the dialog flags this and suggests tiling or a different paper
+    orientation instead. Making layouts actually reflow across generations
+    to fill an arbitrary page - beyond what reshaping leaf-cluster grids or
+    expanding everything can do - would need a deeper change to how
+    siblings are laid out; it isn't attempted here.
 
 ## Database Schema
 
